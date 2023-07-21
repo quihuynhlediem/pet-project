@@ -7,26 +7,26 @@ let todoContainer = document.getElementById('todoContainer')
 function todoRender(){
   let getDataFromlocalStorage = JSON.parse(localStorage.getItem("TodoForm"));
   let divItem = document.createElement('div');
-    divItem.innerHTML = `
+  divItem.innerHTML = `
     <div class = 'todoContent'>
       <div>${getDataFromlocalStorage[getDataFromlocalStorage.length - 1].todo}</div>
     </div>`;
-    divItem.className = "todoItem";
-    todoContainer.appendChild(divItem);
+  divItem.className = "todoItem";
+  todoContainer.appendChild(divItem);
 }
 
 
 function localStorageSave(){
   let getDataFromlocalStorage = JSON.parse(localStorage.getItem("TodoForm"));
-    let newTodo = {
-      todo: input.value,
-      status: "processing"
-    }
-    getDataFromlocalStorage.push(newTodo);
-    localStorage.setItem("TodoForm", JSON.stringify(getDataFromlocalStorage));
+  let newTodo = {
+    todo: input.value,
+    status: "processing"
+  }
+  getDataFromlocalStorage.push(newTodo);
+  localStorage.setItem("TodoForm", JSON.stringify(getDataFromlocalStorage));
 
-    //Renew input
-    input.value = '';
+  //Renew input
+  input.value = '';
 }
 
 
