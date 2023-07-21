@@ -37,11 +37,13 @@ btn.addEventListener('click', function(){
     alert.style.backgroundColor = 'green';
     alert.style.display = 'block';
 
-    //Save info to localStorage
+    
     let checkLocal = JSON.parse(localStorage.getItem("TodoForm"));
     if (checkLocal == null) {
+      //Save info to localStorage
       let emptyArray = [];
       localStorage.setItem("TodoForm", JSON.stringify(emptyArray));
+
       localStorageSave();
       todoRender();
     } else {
