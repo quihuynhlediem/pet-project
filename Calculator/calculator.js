@@ -1,50 +1,58 @@
-// JS Calculation
 let resultString = "";
-let result = 0;
-let container = document.querySelector("div.container");
-let btn = document.querySelectorAll("div.btn");
-let btnNumber = document.querySelectorAll("div.btnNumber");
+let result = document.querySelector('div.result');
 let btnEqual = document.querySelector("div.equal");
-let numberString = "";
-let array = [];
+let btnDel = document.querySelector("div.delete");
+let operation = document.querySelector("div.operation");
 
-  for (let i = 0; i < 16; i++) {
-    btn[i].addEventListener("click", function(){
-      if (this.innerHTML != "=") {resultString += this.innerHTML};
-      document.querySelector(".operation").innerHTML = resultString;
-      let clickValue = this.innerHTML;
-      let className = this.className;
-      if (className == "btn btnNumber") {numberString = numberString + clickValue} 
-        else {
-          array.push(numberString); 
-          numberString = "";
-          if (className != "btn equal") {array.push(clickValue)};
-        }
-    })
+function addition(a, b){
+  return(a + b);
+}
+
+function subtraction(a, b){
+  return(a - b);
+}
+
+function multiplication(a, b){
+  return(a * b);
+}
+
+function division(a, b){
+  di = a / b;
+  return(di.toFixed(2));
+}
+
+function addToString(){
+  resultString += this.event.target.innerHTML;
+  operation.innerHTML = resultString;
+}
+
+function deleteString(){
+  resultString = resultString.substring(0, resultString.length - 1);
+  operation.innerHTML = resultString;
+}
+
+btnEqual.addEventListener('click', function(){
+  if (resultString.indexOf('+') != -1){
+    x = Number(resultString.substring(0, resultString.indexOf('+')));
+    y = Number(resultString.substring(resultString.indexOf('+') + 1, resultString.length));
+    result.innerHTML = addition(x, y);
+  } else if (resultString.indexOf('-') != -1){
+    x = Number(resultString.substring(0, resultString.indexOf('-')));
+    y = Number(resultString.substring(resultString.indexOf('-') + 1, resultString.length));
+    result.innerHTML = subtraction(x, y);
+  } else if (resultString.indexOf('x') != -1){
+    x = Number(resultString.substring(0, resultString.indexOf('x')));
+    y = Number(resultString.substring(resultString.indexOf('x') + 1, resultString.length));
+    result.innerHTML = multiplication(x, y);
+  } else if (resultString.indexOf('/') != -1){
+    x = Number(resultString.substring(0, resultString.indexOf('/')));
+    y = Number(resultString.substring(resultString.indexOf('/') + 1, resultString.length));
+    result.innerHTML = division(x, y);
+  } else {
+    result.innerHTML = resultString;
   }
 
-btnEqual.addEventListener("click", function(){
-  if (array[1] == "+") {
-    document.querySelector(".result").innerHTML = array[0] + array[2];
-  }
-  if (array[1] == "-") {
-    document.querySelector(".result").innerHTML = array[0] - array[2];
-  }
-  if (array[1] == "x") {
-    document.querySelector(".result").innerHTML = array[0] * array[2];
-  }
-  if (array[1] == "/") {
-    document.querySelector(".result").innerHTML = array[0] / array[2];
-  }
-  array=[];
-  array.push(document.querySelector(".result").innerHTML);
-  resultString = document.querySelector(".result").innerHTML;
-  document.querySelector(".operation").innerHTML = resultString;
-  console.log(array[0]);  
-  console.log(resultString);
+  resultString = '';
+  operation.innerHTML = resultString;
+
 })
-
-
-
-
-// JS localStorage
