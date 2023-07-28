@@ -28,10 +28,12 @@ function addToString(){
 
 function deleteString(){
   resultString = resultString.substring(0, resultString.length - 1);
+  //string.substring(a, b) cắt 1 chuỗi từ chuỗi string bắt đầu từ vtri a kết thúc ở b
   operation.innerHTML = resultString;
 }
 
 btnEqual.addEventListener('click', function(){
+  //string.indexOf(a) in ra vị trí của a đầu tiên trong chuỗi string, nếu không có in ra -1
   if (resultString.indexOf('+') != -1){
     x = Number(resultString.substring(0, resultString.indexOf('+')));
     y = Number(resultString.substring(resultString.indexOf('+') + 1, resultString.length));
