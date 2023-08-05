@@ -1,0 +1,95 @@
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Styling for the container */
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 30vh;
+  border: 2px solid #f0f0f0;
+  border-radius: 12px;
+  background-color: #ff6363;
+}
+
+#tab_change {
+  display: flex;
+  justify-content: space-around;
+  width: 400px;
+  margin-bottom: 10px;
+}
+
+#pomodoro,
+#short_break,
+#long_break {
+  width: 100px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+#pomodoro {
+  background-color: #d45252;
+}
+
+#short_break,
+#long_break {
+  background-color: #ff6363;
+}
+
+.active {
+  border-color: #333;
+}
+
+#main_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#timeshow {
+  font-size: 60px;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  /* Change to a darker text color */
+  margin-bottom: 10px;
+}
+
+#start {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: white;
+  color: #d45252;
+  font-weight: bolder;
+  /* Change to white text color */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#start:hover {
+  scale: 1.2;
+}
